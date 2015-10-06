@@ -1,0 +1,101 @@
+class SGV_Controller : ZilchComponent
+{
+   var SGV : Cog = null;
+   var ThisFileName : String = "SGV";
+   var ThisArchetypeName : String = "SAVE_GlobalVar";
+   
+   function Initialize(init : CogInitializer)
+   {
+       Console.WriteLine("SGV work...");
+       this.SGV = Zero.ObjectStore.RestoreOrArchetype(this.ThisFileName,this.ThisArchetypeName,this.Space);
+       if (this.SGV != null)
+       {
+           Console.WriteLine("SGV bind Success");
+       }
+   }
+   
+   function ChangeIfNewGame(boolean : Boolean)
+   {
+       this.CheckIfNull();
+       this.SGV.SAVE_GlobalVar.IfNewGame = boolean;
+       Zero.ObjectStore.Store(this.ThisFileName,this.SGV);
+       return;
+   }
+   
+   function GetIfNewGame() : Boolean
+   {
+       this.CheckIfNull();
+       return this.SGV.SAVE_GlobalVar.IfNewGame;
+   }
+   
+   function ChangePoint_2(boolean : Boolean)
+   {
+       this.CheckIfNull();
+       this.SGV.SAVE_GlobalVar.Point_2 = boolean;
+       Zero.ObjectStore.Store(this.ThisFileName,this.SGV);
+   }
+   
+   function GetPoint_2() : Boolean
+   {
+       this.CheckIfNull();
+       return this.SGV.SAVE_GlobalVar.Point_2;
+   }
+   
+   function ChangePoint_3(boolean : Boolean)
+   {
+       this.CheckIfNull();
+       this.SGV.SAVE_GlobalVar.Point_3 = boolean;
+       Zero.ObjectStore.Store(this.ThisFileName,this.SGV);
+   }
+   
+   function GetPoint_3() : Boolean
+   {
+       this.CheckIfNull();
+       return this.SGV.SAVE_GlobalVar.Point_3;
+   }
+   
+   function ChangePoint_4(boolean : Boolean)
+   {
+       this.CheckIfNull();
+       this.SGV.SAVE_GlobalVar.Point_4 = boolean;
+       Zero.ObjectStore.Store(this.ThisFileName,this.SGV);
+   }
+   
+   function GetPoint_4() : Boolean
+   {
+       this.CheckIfNull();
+       return this.SGV.SAVE_GlobalVar.Point_4;
+   }
+   
+   function ChangePoint_5(boolean : Boolean)
+   {
+       this.CheckIfNull();
+       this.SGV.SAVE_GlobalVar.Point_5 = boolean;
+       Zero.ObjectStore.Store(this.ThisFileName,this.SGV);
+   }
+   
+   function GetPoint_5() : Boolean
+   {
+       this.CheckIfNull();
+       return this.SGV.SAVE_GlobalVar.Point_5;
+   }
+   
+   
+   function CheckIfNull()
+   {
+       if (this.SGV == null)
+       {
+           this.SGV = Zero.ObjectStore.RestoreOrArchetype(this.ThisFileName,this.ThisArchetypeName,this.Space);
+       }
+       return;
+   }
+   
+   function ResetAll()
+   {
+       this.ChangePoint_2(false);
+       this.ChangePoint_3(false);
+       this.ChangePoint_4(false);
+       this.ChangePoint_5(false);
+   }
+    
+}

@@ -1,0 +1,79 @@
+class M_NewGame_CANCLE_ClickEvent : ZilchComponent
+{
+    [Dependency]
+    var Transform:Transform;
+    var ThisTranslation : Real3;
+    var ThisScal : Real3;
+    var XRight : Real;
+    var XLeft : Real;
+    var YTop : Real;
+    var YBottom : Real;
+    
+    //if can be click
+    [Property]
+    var Active : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        //this.InitBoard();
+        Zero.Connect(this.Space,Events.LeftMouseDown,this.OnLeftMouseDown);
+        
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+    
+    function OnLeftMouseDown(event : MouseEvent)
+    {
+        if (this.Active == false)
+        {
+            return;
+        }
+        this.InitBoard();
+            var screenPos = Zero.Mouse.ScreenPosition;
+            var mousePos = this.LevelSettings.CameraViewport.ScreenToWorldZPlane(screenPos,0.0);
+            if (this.CheckIfInBoard(mousePos))
+            {
+               this.OnClick();
+            }
+            else
+            {
+                Console.WriteLine("UnClick");
+                Console.WriteLine("UnClick Name : `this.Owner.Name`");
+            }
+    }
+    
+    function CheckIfInBoard(mousePos : Real3) : Boolean
+    {
+        if (mousePos.X < this.XRight && mousePos.X > this.XLeft && mousePos.Y < this.YTop && mousePos.Y > this.YBottom)
+        {
+            return true;
+        }
+        return false;
+    }
+    
+    function InitBoard()
+    {
+        this.ThisTranslation = this.Owner.Transform.Translation;
+        this.ThisScal = this.Owner.Transform.Scale;
+        this.XRight = this.ThisTranslation.X + this.ThisScal.X/2;
+        this.XLeft = this.ThisTranslation.X - this.ThisScal.X/2;
+        this.YTop = this.ThisTranslation.Y + this.ThisScal.Y/2;
+        this.YBottom = this.ThisTranslation.Y - this.ThisScal.Y/2;
+        Console.WriteLine("XR:`this.XRight`\nXL:`this.XLeft`\nYT:`this.YTop`\nYB:`this.YBottom`");
+    }
+    
+    function OnClick()
+    {
+        //implement method
+        Console.WriteLine("OnClick:`this.Owner.Name`");
+            //change all clickevent to false;
+        this.Space.M_Button_Controller.OffAllActive();
+        //let main page threebutton active to true;
+        this.Space.M_Button_Controller.OnMainPageTreeButton();
+        //disapper dialog
+        this.Space.M_Button_Controller.DisappearNewGameButton();
+    }
+}

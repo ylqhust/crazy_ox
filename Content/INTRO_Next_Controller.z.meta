@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "INTRO_Next_Controller",
+		uint64 ResourceId = 56431716cfc23d58,
+	},
+},

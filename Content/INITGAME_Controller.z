@@ -1,0 +1,73 @@
+class INITGAME_Controller : ZilchComponent
+{
+    var LoadText5 : String = "Loading....";
+    var LoadText4 : String = "Loading...";
+    var LoadText3 : String = "Loading..";
+    var LoadText2 : String = "Loading.";
+    var LoadText1 : String = "Loading";
+    
+    [Property]
+    var Current_Text : Integer = 1;
+    
+    var Passed_Time : Real = 0;
+    
+    [Property]//how long to change the text
+    var Change_Time : Real = 0.5;
+    
+    var V1 : Real = 0;
+    function Initialize(init : CogInitializer)
+    {
+        this.Owner.SpriteText.Text = this.LoadText1;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Passed_Time += event.Dt;
+        this.V1 += event.Dt;
+        if (this.Passed_Time >= this.Change_Time)
+        {
+            this.Change_Text();
+            this.Passed_Time = 0;
+        }
+        
+        if (this.V1 >= 3)
+        {
+            this.Space.Level_Controller.WorldMapLevel();
+        }
+    }
+    
+    function Change_Text()
+    {
+        if (this.Current_Text == 1)
+        {
+            this.Owner.SpriteText.Text = this.LoadText2;
+            this.Current_Text = 2;
+            return;
+        }
+        if (this.Current_Text == 2)
+        {
+            this.Owner.SpriteText.Text = this.LoadText3;
+            this.Current_Text = 3;
+            return;
+        }
+        if (this.Current_Text == 3)
+        {
+            this.Owner.SpriteText.Text = this.LoadText4;
+            this.Current_Text = 4;
+            return;
+        }
+        if (this.Current_Text == 4)
+        {
+            this.Owner.SpriteText.Text = this.LoadText5;
+            this.Current_Text = 5;
+            return;
+        }
+        if (this.Current_Text == 5)
+        {
+            this.Owner.SpriteText.Text = this.LoadText1;
+            this.Current_Text = 1;
+            return;
+        }
+    }
+}

@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "M_NewGame_CANCLE_ClickEvent",
+		uint64 ResourceId = 56426aa1196bdc71,
+	},
+},

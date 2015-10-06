@@ -1,0 +1,15 @@
+class SAVE_GlobalVar : ZilchComponent
+{
+   [Serialized]
+   var IfNewGame : Boolean = true;
+   [Serialized]
+   var Point_1 : Boolean = true;
+   [Serialized]
+   var Point_2 : Boolean = false;
+   [Serialized]
+   var Point_3 : Boolean = false;
+   [Serialized]
+   var Point_4 : Boolean = false;
+   [Serialized]
+   var Point_5 : Boolean = false;
+}

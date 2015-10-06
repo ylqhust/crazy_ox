@@ -1,0 +1,188 @@
+class M_Button_Controller : ZilchComponent
+{
+    //seven button
+    var NewGameButton : Cog = null;
+    var ContinueButton : Cog = null;
+    var SettingButton : Cog = null;
+    var MusicOpenButton : Cog = null;
+    var MusicCloseButton : Cog = null;
+    var NewGameYesButton : Cog = null;
+    var NewGameCancleButton : Cog = null;
+    
+    //three background
+    
+    var SettingBackground : Cog = null;
+    var NewGameBackground : Cog = null;
+    var Waring_TextBackground : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.InitCog();
+    }
+    
+    function InitCog()
+    {
+        this.NewGameButton = this.Space.FindObjectByName("new_game");
+        this.ContinueButton = this.Space.FindObjectByName("continue_game");
+        this.SettingButton = this.Space.FindObjectByName("setting");
+        this.MusicOpenButton = this.Space.FindObjectByName("open_music_button");
+        this.MusicCloseButton = this.Space.FindObjectByName("close_music_button");
+        this.NewGameYesButton = this.Space.FindObjectByName("yes_new_game_button");
+        this.NewGameCancleButton = this.Space.FindObjectByName("cancle_new_game_button");
+        this.SettingBackground = this.Space.FindObjectByName("music_dialog");
+        this.NewGameBackground =this.Space.FindObjectByName("exist_old_but_new_game_dialog");
+        this.Waring_TextBackground = this.Space.FindObjectByName("waring_text");
+    }
+    
+    function OffAllActive()
+    {
+        if (this.NewGameButton == null || this.ContinueButton == null ||
+        this.SettingButton == null || this.MusicCloseButton == null ||
+        this.MusicOpenButton == null || this.NewGameCancleButton == null ||
+        this.NewGameYesButton == null)
+        {
+            this.InitCog();
+        }
+        
+        this.NewGameButton.M_NewGame_ClickEvent.Active = false;
+        this.ContinueButton.M_ContinueGame_ClickEvent.Active = false;
+        this.SettingButton.M_ChangeMusic_ClickEvent.Active = false;
+        this.MusicOpenButton.M_ChangeMusic_OPEN_ClickEvent.Active = false;
+        this.MusicCloseButton.M_ChangeMusic_CLOSE_ClickEvent.Active = false;
+        this.NewGameYesButton.M_NewGame_YES_ClickEvent.Active = false;
+        this.NewGameCancleButton.M_NewGame_CANCLE_ClickEvent.Active = false;
+    }
+    
+    //on 2 music button
+    function OnMusicButton()
+    {
+        if (this.MusicOpenButton == null || this.MusicCloseButton == null)
+        {
+            this.InitCog();
+        }
+        this.MusicOpenButton.M_ChangeMusic_OPEN_ClickEvent.Active = true;
+        this.MusicCloseButton.M_ChangeMusic_CLOSE_ClickEvent.Active = true;
+    }
+    
+    //on 2 new_game button
+    function OnNewGameButton()
+    {
+        if (this.NewGameYesButton == null || this.NewGameCancleButton == null)
+        {
+            this.InitCog();
+        }
+        this.NewGameYesButton.M_NewGame_YES_ClickEvent.Active = true;
+        this.NewGameCancleButton.M_NewGame_CANCLE_ClickEvent.Active = true;
+    }
+    
+    //on 3 main page button
+    function OnMainPageTreeButton()
+    {
+        if (this.NewGameButton == null || this.ContinueButton == null || this.SettingButton == null)
+        {
+            this.InitCog();
+        }
+        this.NewGameButton.M_NewGame_ClickEvent.Active = true;
+        this.ContinueButton.M_ContinueGame_ClickEvent.Active = true;
+        this.SettingButton.M_ChangeMusic_ClickEvent.Active = true;
+    }
+    
+    //animation to show music switch button
+    function ShowMusicButton()
+    {
+        //check null
+        if (this.MusicOpenButton == null ||
+        this.MusicCloseButton == null ||
+        this.SettingBackground == null)
+        {
+            this.InitCog();
+        }
+        //set SpriteLayer
+        this.SettingBackground.Sprite.SpriteLayer = SpriteLayer.Bottom_8;
+        this.MusicOpenButton.Sprite.SpriteLayer = SpriteLayer.Bottom_7;
+        this.MusicCloseButton.Sprite.SpriteLayer = SpriteLayer.Bottom_7;
+        
+        this.ActiveAnimation(this.SettingBackground);
+        this.ActiveAnimation(this.MusicOpenButton);
+        this.ActiveAnimation(this.MusicCloseButton);
+        
+    }
+    
+    //animation to disapper music switch button
+    function DisappearMusicButton()
+    {
+         //check null
+        if (this.MusicOpenButton == null ||
+        this.MusicCloseButton == null ||
+        this.SettingBackground == null)
+        {
+            this.InitCog();
+        }
+        //set SpriteLayer
+        this.SettingBackground.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
+        this.MusicOpenButton.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
+        this.MusicCloseButton.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
+        
+        this.OffAnimation(this.SettingBackground);
+        this.OffAnimation(this.MusicOpenButton);
+        this.OffAnimation(this.MusicCloseButton);
+    }
+    
+    //animation to show new game button
+    function ShowNewGameButton()
+    {
+        if (this.NewGameCancleButton == null ||
+        this.NewGameYesButton == null ||
+        this.NewGameBackground == null ||
+        this.Waring_TextBackground == null)
+        {
+            this.InitCog();
+        }
+        
+        this.NewGameBackground.Sprite.SpriteLayer = SpriteLayer.Bottom_8;
+        this.NewGameYesButton.Sprite.SpriteLayer = SpriteLayer.Bottom_7;
+        this.NewGameCancleButton.Sprite.SpriteLayer = SpriteLayer.Bottom_7;
+        this.Waring_TextBackground.Sprite.SpriteLayer = SpriteLayer.Bottom_7;
+        
+        this.ActiveAnimation(this.NewGameBackground);
+        this.ActiveAnimation(this.NewGameCancleButton);
+        this.ActiveAnimation(this.NewGameYesButton);
+        this.ActiveAnimation(this.Waring_TextBackground);
+    }
+    
+    //animation to disappear new game button
+    function DisappearNewGameButton()
+    {
+          //check null
+        if (this.NewGameBackground == null ||
+        this.NewGameCancleButton == null ||
+        this.NewGameYesButton == null ||
+        this.Waring_TextBackground == null)
+        {
+            this.InitCog();
+        }
+        //set SpriteLayer
+        this.NewGameBackground.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
+        this.NewGameYesButton.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
+        this.NewGameCancleButton.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
+        this.Waring_TextBackground.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
+        
+        this.OffAnimation(this.NewGameBackground);
+        this.OffAnimation(this.NewGameCancleButton);
+        this.OffAnimation(this.NewGameYesButton);
+        this.OffAnimation(this.Waring_TextBackground);
+    }
+    
+    function ActiveAnimation(cog : Cog)
+    {
+        cog.DynamicSpread.Active = true;
+        cog.DynamicReduce.Active = false;
+    }
+    
+    function OffAnimation(cog : Cog)
+    {
+        cog.DynamicReduce.Active = true;
+        cog.DynamicSpread.Active = false;
+    }
+}
+

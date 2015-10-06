@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "M_ChangeMusic_ClickEvent",
+		uint64 ResourceId = 56426d43f669d994,
+	},
+},

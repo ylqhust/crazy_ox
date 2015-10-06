@@ -1,0 +1,100 @@
+class Guai_Collision_Event : ZilchComponent
+{
+    [Property]
+    var Life : Real = 50;
+    [Property]
+    var Attack : Real = 10;
+    [Property]
+    var Defence : Real = 20;
+    [Property]
+    var Experience : Integer = 100;
+    [Property]
+    var Money : Integer = 100;
+    [Property]
+    var PlayerName : String = "Player";
+    
+    var CONTINUE : Integer = 1;
+    var PLAYER_DEAD : Integer = 2;
+    var THIS_DEAD : Integer = 3;
+    
+    //if begin fight
+    var Active : Boolean = false;
+    
+    var OtherObject : Cog = null;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner,Events.CollisionStarted,this.OnStart);
+        Zero.Connect(this.Space,Events.LogicUpdate,this.OnLogicUpdate);
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.Active)
+        {
+            var resultType = this.OneByOne();
+            this.OtherObject.SPA_Show_To_Text.UpdataText();
+            if (resultType == this.PLAYER_DEAD)
+            {
+                this.Space.Level_Controller.Map001Level();
+            }
+            if (resultType == this.THIS_DEAD)
+            {
+                this.AwardPlayer();
+                this.Space.SPA_Controller.CheckUpLevel();
+                this.OtherObject.SPA_Show_To_Text.UpdataText();
+                this.Owner.Destroy();
+            }
+        }
+    }
+    
+    function OnStart(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if (otherObject != null && otherObject.Name == this.PlayerName)
+        {
+            this.OtherObject = otherObject;
+            this.BeginFight();
+        }
+    }
+    
+    function BeginFight()
+    {
+        this.Active = true;
+    } 
+    
+    function OneByOne() : Integer
+    {
+        var player_attack = this.Space.SPA_Controller.GetAttack();
+        var player_defence = this.Space.SPA_Controller.GetDefence();
+        var player_life = this.Space.SPA_Controller.GetLife();
+        
+        if (player_attack > this.Defence)
+        {
+            this.Life -= (player_attack-this.Defence);
+        }
+        
+        if (this.Attack > player_defence)
+        {
+            player_life -= this.Attack - player_defence;
+            this.Space.SPA_Controller.ChangeLife(player_life);
+        }
+        if (player_life <= 0 )
+        {
+            return this.PLAYER_DEAD;
+        }
+        if (this.Life <= 0)
+        {
+            return this.THIS_DEAD;
+        }
+        return this.CONTINUE;
+    }
+    
+    
+    function AwardPlayer()
+    {
+        var player_exp = this.Space.SPA_Controller.GetCurrentExperience();
+        var player_money = this.Space.SPA_Controller.GetMoney();
+        this.Space.SPA_Controller.ChangeMoney(player_money+this.Money);
+        this.Space.SPA_Controller.ChangeCurrentExperience(player_exp+this.Experience);
+    }
+}

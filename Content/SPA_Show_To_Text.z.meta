@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "SPA_Show_To_Text",
+		uint64 ResourceId = 5643e56942dae795,
+	},
+},

@@ -1,0 +1,23 @@
+class Check_Point_IN_Map001 : ZilchComponent
+{
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner,Events.CollisionStarted,this.OnStart);
+    }
+
+   
+    
+
+    function OnStart(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if (otherObject.Name == "Player")
+        {
+             //change point2 to true
+            this.Space.SGV_Controller.ChangePoint_2(true);
+            this.Space.Level_Controller.WorldMapLevel();
+        }
+       
+    }
+}

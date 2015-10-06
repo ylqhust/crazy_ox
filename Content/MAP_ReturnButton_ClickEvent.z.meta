@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "MAP_ReturnButton_ClickEvent",
+		uint64 ResourceId = 5643f847084b23dd,
+	},
+},

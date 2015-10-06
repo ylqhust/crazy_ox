@@ -1,0 +1,50 @@
+class SPA_Show_To_Text : ZilchComponent
+{
+    var LevelText : Cog = null;
+    var HPText : Cog = null;
+    var AttackText : Cog = null;
+    var DefenceText : Cog = null;
+    var ExperText : Cog = null;
+    var MoneyText : Cog = null;
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.InitCog();
+        this.UpdataText();
+    }
+
+    function UpdataText()
+    {
+        this.CheckNull();
+        this.LevelText.SpriteText.Text = "Lv:`this.Space.SPA_Controller.GetLevel()`";
+        this.HPText.SpriteText.Text = "HP:`this.Space.SPA_Controller.GetLife()`";
+        this.AttackText.SpriteText.Text = "Attack:`this.Space.SPA_Controller.GetAttack()`";
+        this.DefenceText.SpriteText.Text = "Defence:`this.Space.SPA_Controller.GetDefence()`";
+        this.MoneyText.SpriteText.Text = "Money:`this.Space.SPA_Controller.GetMoney()`";
+        this.ExperText.SpriteText.Text = "Exp:`this.Space.SPA_Controller.GetCurrentExperience()`/`this.Space.SPA_Controller.GetNextExperience()`";
+    }
+    
+    function InitCog()
+    {
+        this.LevelText = this.Space.FindObjectByName("LevelText");
+        this.HPText = this.Space.FindObjectByName("HPText");
+        this.AttackText = this.Space.FindObjectByName("AttackText");
+        this.DefenceText = this.Space.FindObjectByName("DefenceText");
+        this.ExperText = this.Space.FindObjectByName("ExperienceText");
+        this.MoneyText = this.Space.FindObjectByName("MoneyText");
+    }
+    
+    function CheckNull()
+    {
+        if (this.LevelText == null ||
+        this.HPText == null ||
+        this.AttackText == null ||
+    this.DefenceText == null ||
+    this.ExperText == null ||
+    this.MoneyText == null)
+    {
+        this.InitCog();
+    }
+    }
+}

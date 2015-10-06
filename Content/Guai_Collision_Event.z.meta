@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Guai_Collision_Event",
+		uint64 ResourceId = 5643daf30db22c62,
+	},
+},

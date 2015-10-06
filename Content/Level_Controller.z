@@ -1,0 +1,62 @@
+class Level_Controller : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+    }
+    
+    //begin IntrodunctionLevel from MainPageLevel
+    function IntroductionLevel()
+    {
+        Console.WriteLine("IntroductionLevel");
+        this.Space.LoadLevel(Level.IntroductionLevel);
+    }
+    
+    //begin InitGameDataLevel
+    function InitGameDataLevel()
+    {
+        //load game data ,fribbid set data
+        Console.WriteLine("InitGameDataLevel");
+        this.Space.LoadLevel(Level.InitGameDataLevel);
+    }
+    
+    //begin WorldMapLevel from InitGameDataLevel
+    function WorldMapLevel()
+    {
+        Console.WriteLine("WorldMapLevel");
+        var boolean = this.Space.SGV_Controller.GetPoint_5();
+        if (boolean)
+        {
+            this.Space.LoadLevel(Level.WorldMapLevel005);
+            return;
+        }
+        boolean = this.Space.SGV_Controller.GetPoint_4();
+        if (boolean)
+        {
+            this.Space.LoadLevel(Level.WorldMapLevel004);
+            return;
+        }
+        boolean = this.Space.SGV_Controller.GetPoint_3();
+        if (boolean)
+        {
+            this.Space.LoadLevel(Level.WorldMapLevel003);
+            return;
+        }
+        boolean = this.Space.SGV_Controller.GetPoint_2();
+        if (boolean)
+        {
+            this.Space.LoadLevel(Level.WorldMapLevel002);
+            return;
+        }
+        this.Space.LoadLevel(Level.WorldMapLevel001);
+    }
+    
+    //begin Map001Level from WorldMapLevel
+    function Map001Level()
+    {
+        Console.WriteLine("Map001Level");
+        this.Space.LoadLevel(Level.Map001Level);
+        //reset life depence player level
+        var playerlevel = this.Space.SPA_Controller.GetLevel();
+        this.Space.SPA_Controller.ChangeLife(playerlevel*200);
+    }
+}
