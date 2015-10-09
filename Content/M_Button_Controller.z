@@ -8,7 +8,11 @@ class M_Button_Controller : ZilchComponent
     var MusicCloseButton : Cog = null;
     var NewGameYesButton : Cog = null;
     var NewGameCancleButton : Cog = null;
-    
+    var Waring_Text_Background_Photo : Cog = null;
+    var NewGameYesButtonPhoto : Cog = null;
+    var NewGameCancleButtonPhoto : Cog = null;
+    var MusicOpenButtonPhoto : Cog = null;
+    var MusicCloseButtonPhoto : Cog = null;
     //three background
     
     var SettingBackground : Cog = null;
@@ -32,6 +36,11 @@ class M_Button_Controller : ZilchComponent
         this.SettingBackground = this.Space.FindObjectByName("music_dialog");
         this.NewGameBackground =this.Space.FindObjectByName("exist_old_but_new_game_dialog");
         this.Waring_TextBackground = this.Space.FindObjectByName("waring_text");
+        this.Waring_Text_Background_Photo = this.Space.FindObjectByName("waring_text_background");
+        this.NewGameYesButtonPhoto = this.Space.FindObjectByName("yes_new_game_button_photo");
+        this.NewGameCancleButtonPhoto = this.Space.FindObjectByName("cancle_new_game_button_photo");
+        this.MusicOpenButtonPhoto = this.Space.FindObjectByName("open_music_button_photo");
+        this.MusicCloseButtonPhoto = this.Space.FindObjectByName("close_music_button_photo");
     }
     
     function OffAllActive()
@@ -93,7 +102,9 @@ class M_Button_Controller : ZilchComponent
         //check null
         if (this.MusicOpenButton == null ||
         this.MusicCloseButton == null ||
-        this.SettingBackground == null)
+        this.SettingBackground == null ||
+        this.MusicOpenButtonPhoto == null ||
+        this.MusicCloseButtonPhoto == null)
         {
             this.InitCog();
         }
@@ -101,6 +112,8 @@ class M_Button_Controller : ZilchComponent
         this.SettingBackground.Sprite.SpriteLayer = SpriteLayer.Bottom_8;
         this.MusicOpenButton.Sprite.SpriteLayer = SpriteLayer.Bottom_7;
         this.MusicCloseButton.Sprite.SpriteLayer = SpriteLayer.Bottom_7;
+        this.MusicCloseButtonPhoto.Sprite.SpriteLayer = SpriteLayer.Bottom_6;
+        this.MusicOpenButtonPhoto.Sprite.SpriteLayer = SpriteLayer.Bottom_6;
         
         this.ActiveAnimation(this.SettingBackground);
         this.ActiveAnimation(this.MusicOpenButton);
@@ -122,6 +135,8 @@ class M_Button_Controller : ZilchComponent
         this.SettingBackground.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
         this.MusicOpenButton.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
         this.MusicCloseButton.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
+        this.MusicCloseButtonPhoto.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
+        this.MusicOpenButtonPhoto.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
         
         this.OffAnimation(this.SettingBackground);
         this.OffAnimation(this.MusicOpenButton);
@@ -134,7 +149,10 @@ class M_Button_Controller : ZilchComponent
         if (this.NewGameCancleButton == null ||
         this.NewGameYesButton == null ||
         this.NewGameBackground == null ||
-        this.Waring_TextBackground == null)
+        this.Waring_TextBackground == null ||
+        this.Waring_Text_Background_Photo == null ||
+        this.NewGameYesButtonPhoto == null ||
+        this.NewGameCancleButtonPhoto == null)
         {
             this.InitCog();
         }
@@ -143,6 +161,9 @@ class M_Button_Controller : ZilchComponent
         this.NewGameYesButton.Sprite.SpriteLayer = SpriteLayer.Bottom_7;
         this.NewGameCancleButton.Sprite.SpriteLayer = SpriteLayer.Bottom_7;
         this.Waring_TextBackground.Sprite.SpriteLayer = SpriteLayer.Bottom_7;
+        this.Waring_Text_Background_Photo.Sprite.SpriteLayer = SpriteLayer.Mid_9;
+        this.NewGameCancleButtonPhoto.Sprite.SpriteLayer = SpriteLayer.Mid_9;
+        this.NewGameYesButtonPhoto.Sprite.SpriteLayer = SpriteLayer.Mid_9;
         
         this.ActiveAnimation(this.NewGameBackground);
         this.ActiveAnimation(this.NewGameCancleButton);
@@ -157,7 +178,10 @@ class M_Button_Controller : ZilchComponent
         if (this.NewGameBackground == null ||
         this.NewGameCancleButton == null ||
         this.NewGameYesButton == null ||
-        this.Waring_TextBackground == null)
+        this.Waring_TextBackground == null ||
+        this.Waring_Text_Background_Photo == null ||
+        this.NewGameYesButtonPhoto == null ||
+        this.NewGameCancleButtonPhoto == null)
         {
             this.InitCog();
         }
@@ -166,6 +190,9 @@ class M_Button_Controller : ZilchComponent
         this.NewGameYesButton.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
         this.NewGameCancleButton.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
         this.Waring_TextBackground.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
+        this.Waring_Text_Background_Photo.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
+        this.NewGameCancleButtonPhoto.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
+        this.NewGameYesButtonPhoto.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
         
         this.OffAnimation(this.NewGameBackground);
         this.OffAnimation(this.NewGameCancleButton);

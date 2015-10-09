@@ -1,0 +1,97 @@
+class Show_Result : ZilchComponent
+{
+    var Battle_Result_Container : Cog = null;
+    var Battle_Result : Cog = null;
+    
+    var Begin_Count_Time : Boolean = false;
+    
+    
+    var WinORLose : Boolean = false;
+    [Property]
+    var Animation_Time : Real = 3;
+    var Passed_Time : Real = 0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.Begin_Count_Time)
+        {
+            if (this.Passed_Time >= this.Animation_Time)
+            {
+                this.EndShow();
+                this.Begin_Count_Time = false;
+                this.Passed_Time = 0;
+            }
+            else
+            {
+                this.Passed_Time += event.Dt;
+            }
+        }
+    }
+    
+    function Show(winOrlose : Boolean)
+    {
+        this.WinORLose = winOrlose;
+        if (this.CheckNull())
+        {
+            this.InitCog();
+        }
+        if (winOrlose == true)
+        {
+            this.ShowWin();
+        }
+        else
+        {
+            this.ShowLose();
+        }
+        this.Owner.Move_Player.SetMoveSync(true);
+    }
+    
+    
+    function InitCog()
+    {
+        this.Battle_Result_Container = this.Space.FindObjectByName("battle_result_container");
+        this.Battle_Result = this.Space.FindObjectByName("battle_result");
+    }
+    
+    function CheckNull() : Boolean
+    {
+        if (this.Battle_Result == null ||
+        this.Battle_Result_Container == null)
+        {
+            return true;
+        }
+        return false;
+    }
+    
+    function ShowWin()
+    {
+        this.Begin_Count_Time = true;
+        this.Battle_Result.Sprite.SpriteSource = SpriteSource.Battle_win;
+        this.Battle_Result.Sprite.SpriteLayer = SpriteLayer.Mid_6;
+        this.Battle_Result_Container.DynamicSpread.Active = true;
+    }
+    
+    function ShowLose()
+    {
+        this.Begin_Count_Time = true;
+        this.Battle_Result.Sprite.SpriteSource = SpriteSource.Battle_lose;
+        this.Battle_Result.Sprite.SpriteLayer = SpriteLayer.Mid_6;
+        this.Battle_Result_Container.DynamicSpread.Active = true;
+        this.Battle_Result_Container.DynamicReduce.Active = false;
+    }
+    
+    function EndShow()
+    {
+        this.Battle_Result.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
+        this.Battle_Result_Container.DynamicReduce.Active = true;
+        this.Battle_Result_Container.DynamicSpread.Active = false;
+        if (this.WinORLose == false)
+        {
+            this.Space.Level_Controller.Map001Level();
+        }
+    }
+}

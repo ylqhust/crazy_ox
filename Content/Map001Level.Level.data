@@ -103,7 +103,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.215417624, 2.29352641, 50],
+			Vec3 Translation = [0.412530303, 0.996532917, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-008, 0, 1],
 		},
@@ -115,7 +115,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 22.1034279,
+			float Size = 32.9744263,
 		},
 		EditorCameraController = 
 		{
@@ -123,7 +123,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [0.215417624, 2.29352641, 9.41618428e-009],
+			Vec3 LookTarget = [0.412530303, 0.996532917, 1.80323383e-008],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -276,6 +276,10 @@ Level =
 		SPA_Show_To_Text = 
 		{
 		},
+		Show_Result = 
+		{
+			float Animation_Time = 3,
+		},
 	},
 	Cog = 
 	{
@@ -360,6 +364,7 @@ Level =
 			int Experience = 100,
 			int Money = 100,
 			string PlayerName = "Player",
+			float Battle_Duration_Time = 3,
 		},
 	},
 	Cog = 
@@ -445,6 +450,7 @@ Level =
 			int Experience = 100,
 			int Money = 100,
 			string PlayerName = "Player",
+			float Battle_Duration_Time = 3,
 		},
 	},
 	Cog = 
@@ -525,11 +531,12 @@ Level =
 		Guai_Collision_Event = 
 		{
 			float Life = 50,
-			float Attack = 200,
+			float Attack = 400,
 			float Defence = 20,
 			int Experience = 100,
 			int Money = 100,
 			string PlayerName = "Player",
+			float Battle_Duration_Time = 3,
 		},
 	},
 	Cog = 
@@ -615,6 +622,7 @@ Level =
 			int Experience = 100,
 			int Money = 100,
 			string PlayerName = "Player",
+			float Battle_Duration_Time = 3,
 		},
 	},
 	Cog = 
@@ -675,12 +683,13 @@ Level =
 		},
 		Guai_Collision_Event = 
 		{
-			float Life = 50,
-			float Attack = 1000,
-			float Defence = 20,
+			float Life = 1000,
+			float Attack = 2000,
+			float Defence = 90,
 			int Experience = 100,
 			int Money = 100,
 			string PlayerName = "Player",
+			float Battle_Duration_Time = 3,
 		},
 	},
 	Cog = 
@@ -1001,7 +1010,6 @@ Level =
 		},
 		Check_Point_IN_Map001 = 
 		{
-			bool Active = true,
 		},
 	},
 	Cog = 
@@ -1245,6 +1253,168 @@ Level =
 			TextAlign Align = Left,
 			float PixelsPerUnit = 64,
 			bool Smoothing = true,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 23,
+		},
+		Named = 
+		{
+			string Name = "back_button_photo",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-10.3064108, 8.02808762, 9.31322575e-009],
+			Vec3 Scale = [0.927451372, 1.41148174, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "565acfdc3a19e35c:Bottom_6",
+			string SpriteSource = "5647112d2dfa8644:map_back_button_photo",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 24,
+		},
+		Named = 
+		{
+			string Name = "battle_animation",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-0.0268578529, -0.0554671288, -2.01864168e-007],
+			Vec3 Scale = [2, 2, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "56470e15adea1d45:animation_battle_ani",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 25,
+		},
+		Named = 
+		{
+			string Name = "battle_result_container",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.0448937416, 0.00356149673, -2.01864168e-007],
+			Vec3 Scale = [1.5, 1.5, 0.99999994],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5275aa4d802dd6dc:Square",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		DynamicSpread = 
+		{
+			float FinalX = 15,
+			float FinalY = 15,
+			int SpreadSpeedX = 15,
+			int SpreadSpeedY = 15,
+			bool Active = false,
+		},
+		DynamicReduce = 
+		{
+			float FinalX = 1.5,
+			float FinalY = 1.5,
+			int ReduceSpeedX = 15,
+			int ReduceSpeedY = 15,
+			bool Active = false,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 26,
+				},
+				Named = 
+				{
+					string Name = "battle_result",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.0015787445, 0, -1.42108547e-014],
+					Vec3 Scale = [0.161625117, 0.213493407, 1.00000012],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "56470e785d9ec14d:Battle_win",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+				Hierarchy = 
+				{
+				},
+			},
 		},
 	},
 },

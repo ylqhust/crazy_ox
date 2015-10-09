@@ -200,85 +200,18 @@ Level =
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
 		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 5,
-		},
-		Named = 
-		{
-			string Name = "Next_Button",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [7.5, -8, 0],
-			Vec3 Scale = [4, 1.39999998, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Sprite = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = true,
-			bool CastShadows = false,
-			Vec4 Color = [0.930000007, 0.125549972, 0.125549972, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "5275aa4d802dd6dc:Square",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-		},
 		INTRO_Next_Controller = 
 		{
-			bool Active = true,
+			bool Active = false,
 			string Current_View = "564316661547ff24:Intro_001",
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 6,
-		},
-		Named = 
-		{
-			string Name = "Pre_Button",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-7.5, -8, 0],
-			Vec3 Scale = [4, 1.39999998, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Sprite = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = true,
-			bool CastShadows = false,
-			Vec4 Color = [0.218299851, 0.0416250229, 0.925000012, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "5275aa4d802dd6dc:Square",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
 		},
 		INTRO_Pre_Controller = 
 		{
-			bool Active = true,
+			bool Active = false,
 			string Current_View = "564316661547ff24:Intro_001",
+		},
+		INTRO_Mouse_Controller = 
+		{
 		},
 	},
 },

@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "INTRO_Mouse_Controller",
+		uint64 ResourceId = 56471ed232839c96,
+	},
+},

@@ -24,6 +24,8 @@ class Move_Player : ZilchComponent
     //default the player move speed
     var Move_Speed : Real = 1;
     
+    var Move_Sync : Boolean = true;
+    
     var Last_Key : String = "W";
     
     function Initialize(init : CogInitializer)
@@ -34,6 +36,10 @@ class Move_Player : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        if (!this.GetMoveSync())
+        {
+            return;
+        }
         var movement : Real3 = Real3(0.0,0.0,0.0);
         if (Zero.Keyboard.KeyIsDown(this.Move_Left) || Zero.Keyboard.KeyIsDown(Keys.Left))
         {
@@ -82,5 +88,15 @@ class Move_Player : ZilchComponent
     function OnStart(event : CollisionEvent)
     {
         Console.WriteLine("Collision");
+    }
+    
+    function SetMoveSync(boolean : Boolean)
+    {
+        this.Move_Sync = boolean;
+    }
+    
+    function GetMoveSync() : Boolean
+    {
+        return this.Move_Sync;
     }
 }

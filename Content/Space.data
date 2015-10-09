@@ -61,4 +61,7 @@ Space =
 	Level_Controller = 
 	{
 	},
+	SMC_Music_Controller = 
+	{
+	},
 },

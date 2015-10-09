@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "animation_battle_ani",
+		uint64 ResourceId = 56470e15adea1d45,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 400,
+		uint FrameSizeY = 300,
+		uint FrameCount = 10,
+		float FrameDelay = 0.0833333358,
+		float OriginX = 200,
+		float OriginY = 150,
+		float PixelsPerUnit = 64,
+		bool Smoothing = false,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+		SpriteFill Fill = Stretch,
+	},
+},

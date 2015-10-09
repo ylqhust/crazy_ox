@@ -15,6 +15,11 @@ class SGS_Controller : ZilchComponent
         if (this.SGS != null)
         {
             Console.WriteLine("SGS bind success");
+            Console.WriteLine("MusicSet :`this.GetIfSound()`");
+            if (this.GetIfSound())
+            {
+                this.Space.SoundSpace.PlayCue(SoundCue.Background_music1);
+            }
         }
     }
     

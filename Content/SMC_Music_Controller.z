@@ -1,0 +1,15 @@
+class SMC_Music_Controller : ZilchComponent
+{
+   function AdjustSpaceSound(boolean : Boolean)
+   {
+       if (boolean)
+       {
+           this.Space.SoundSpace.SetVolume(10,0);
+           this.Space.SoundSpace.PlayCue(SoundCue.Background_music1);
+       }
+       else
+       {
+           this.Space.SoundSpace.SetVolume(0,0);
+       }
+   }
+}

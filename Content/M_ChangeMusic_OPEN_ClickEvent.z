@@ -74,5 +74,8 @@ class M_ChangeMusic_OPEN_ClickEvent : ZilchComponent
         this.Space.M_Button_Controller.OffAllActive();
         this.Space.M_Button_Controller.DisappearMusicButton();
         this.Space.M_Button_Controller.OnMainPageTreeButton();
+        
+        this.Space.SMC_Music_Controller.AdjustSpaceSound(true);
+        
     }
 }

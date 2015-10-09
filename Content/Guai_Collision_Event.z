@@ -20,6 +20,11 @@ class Guai_Collision_Event : ZilchComponent
     //if begin fight
     var Active : Boolean = false;
     
+    //if begin fight
+    var ExistAnimation : Boolean = false;
+    
+    var Battle_Animation : Cog = null;
+    
     var OtherObject : Cog = null;
     function Initialize(init : CogInitializer)
     {
@@ -27,23 +32,25 @@ class Guai_Collision_Event : ZilchComponent
         Zero.Connect(this.Space,Events.LogicUpdate,this.OnLogicUpdate);
     }
     
+    
+    [Property]
+    var Battle_Duration_Time : Real = 1;
+    var Battle_Passed_Time : Real = 1.1;
+    
     function OnLogicUpdate(event : UpdateEvent)
     {
         if (this.Active)
         {
-            var resultType = this.OneByOne();
-            this.OtherObject.SPA_Show_To_Text.UpdataText();
-            if (resultType == this.PLAYER_DEAD)
+            if (!this.ExistAnimation)
             {
-                this.Space.Level_Controller.Map001Level();
+                this.PlayAnimation();
             }
-            if (resultType == this.THIS_DEAD)
+            if (this.Battle_Passed_Time >= this.Battle_Duration_Time)
             {
-                this.AwardPlayer();
-                this.Space.SPA_Controller.CheckUpLevel();
-                this.OtherObject.SPA_Show_To_Text.UpdataText();
-                this.Owner.Destroy();
+                this.BeginFight();
+                this.Battle_Passed_Time = 0;
             }
+            this.Battle_Passed_Time += event.Dt;
         }
     }
     
@@ -52,14 +59,35 @@ class Guai_Collision_Event : ZilchComponent
         var otherObject = event.OtherObject;
         if (otherObject != null && otherObject.Name == this.PlayerName)
         {
+            //sync the battle ,only when a guai have end the battle
+            //next guai can battle with player
+            if (otherObject.Move_Player.GetMoveSync() == false)
+            return;
+            this.Battle_Animation = this.Space.FindObjectByName("battle_animation");
+            otherObject.Move_Player.SetMoveSync(false);
             this.OtherObject = otherObject;
-            this.BeginFight();
+            this.Active = true;
         }
     }
     
     function BeginFight()
     {
-        this.Active = true;
+            var resultType = this.OneByOne();
+            this.OtherObject.SPA_Show_To_Text.UpdataText();
+            if (resultType == this.PLAYER_DEAD)
+            {
+                this.CloseAnimation();
+                this.OtherObject.Show_Result.Show(false);
+            }
+            if (resultType == this.THIS_DEAD)
+            {
+                this.CloseAnimation();
+                this.OtherObject.Show_Result.Show(true);
+                this.AwardPlayer();
+                this.Space.SPA_Controller.CheckUpLevel();
+                this.OtherObject.SPA_Show_To_Text.UpdataText();
+                this.Owner.Destroy();
+            }
     } 
     
     function OneByOne() : Integer
@@ -96,5 +124,15 @@ class Guai_Collision_Event : ZilchComponent
         var player_money = this.Space.SPA_Controller.GetMoney();
         this.Space.SPA_Controller.ChangeMoney(player_money+this.Money);
         this.Space.SPA_Controller.ChangeCurrentExperience(player_exp+this.Experience);
+    }
+    
+    function PlayAnimation()
+    {
+       this.Battle_Animation.Sprite.SpriteLayer = SpriteLayer.Bottom_8;
+    }
+    
+    function CloseAnimation()
+    {
+       this.Battle_Animation.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
     }
 }

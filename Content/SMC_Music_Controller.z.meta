@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "SMC_Music_Controller",
+		uint64 ResourceId = 56471bcde43db0dc,
+	},
+},
