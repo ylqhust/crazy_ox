@@ -76,7 +76,7 @@ class INTRO_Next_Controller : ZilchComponent
             this.Intro_Background = this.Space.FindObjectByName("Intro_background");
         }
         this.Current_View = this.Intro_Background.Sprite.SpriteSource;
-        if (this.Current_View == SpriteSource.Intro_004)
+        if (this.Current_View == SpriteSource.Intro_006)
         {
             this.Space.Level_Controller.InitGameDataLevel();
         }
@@ -104,6 +104,16 @@ class INTRO_Next_Controller : ZilchComponent
         {
              Console.WriteLine("3>4");
             this.Intro_Background.Sprite.SpriteSource = SpriteSource.Intro_004;
+            return;
+        }
+        if (this.Current_View == SpriteSource.Intro_004)
+        {
+            this.Intro_Background.Sprite.SpriteSource = SpriteSource.Intro_005;
+            return;
+        }
+        if (this.Current_View == SpriteSource.Intro_005)
+        {
+            this.Intro_Background.Sprite.SpriteSource = SpriteSource.Intro_006;
             return;
         }
     }

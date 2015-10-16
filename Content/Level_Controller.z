@@ -59,4 +59,33 @@ class Level_Controller : ZilchComponent
         var playerlevel = this.Space.SPA_Controller.GetLevel();
         this.Space.SPA_Controller.ChangeLife(playerlevel*200);
     }
+    
+    function Map002Level()
+    {
+        Console.WriteLine("Map002Level");
+        this.Space.LoadLevel(Level.Map002Level);
+        var playerlevel = this.Space.SPA_Controller.GetLevel();
+        this.Space.SPA_Controller.ChangeLife(playerlevel*200);
+    }
+    function Map003Level()
+    {
+        Console.WriteLine("Map003Level");
+        this.Space.LoadLevel(Level.Map003Level);
+        var playerlevel = this.Space.SPA_Controller.GetLevel();
+        this.Space.SPA_Controller.ChangeLife(playerlevel*200);
+    }
+    function Map004Level()
+    {
+        Console.WriteLine("Map004Level");
+        this.Space.LoadLevel(Level.Map004Level);
+        var playerlevel = this.Space.SPA_Controller.GetLevel();
+        this.Space.SPA_Controller.ChangeLife(playerlevel*200);
+    }
+    function Map005Level()
+    {
+        Console.WriteLine("Map005Level");
+        this.Space.LoadLevel(Level.Map005Level);
+        var playerlevel = this.Space.SPA_Controller.GetLevel();
+        this.Space.SPA_Controller.ChangeLife(playerlevel*200);
+    }
 }

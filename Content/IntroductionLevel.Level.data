@@ -179,7 +179,7 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [0, 0, 0],
-			Vec3 Scale = [1.20000005, 1.39999998, 1],
+			Vec3 Scale = [2.5, 2.5, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
@@ -192,7 +192,7 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "564316661547ff24:Intro_001",
+			string SpriteSource = "5647c6d242fb4c50:Intro_001",
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
@@ -203,12 +203,12 @@ Level =
 		INTRO_Next_Controller = 
 		{
 			bool Active = false,
-			string Current_View = "564316661547ff24:Intro_001",
+			string Current_View = "5647c6d242fb4c50:Intro_001",
 		},
 		INTRO_Pre_Controller = 
 		{
 			bool Active = false,
-			string Current_View = "564316661547ff24:Intro_001",
+			string Current_View = "5647c6d242fb4c50:Intro_001",
 		},
 		INTRO_Mouse_Controller = 
 		{

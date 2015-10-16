@@ -13,11 +13,16 @@ class M_Button_Controller : ZilchComponent
     var NewGameCancleButtonPhoto : Cog = null;
     var MusicOpenButtonPhoto : Cog = null;
     var MusicCloseButtonPhoto : Cog = null;
+    var AboutButton : Cog = null;
+    var AboutBackButton : Cog = null;
     //three background
     
     var SettingBackground : Cog = null;
     var NewGameBackground : Cog = null;
     var Waring_TextBackground : Cog = null;
+    
+    var About_Text : Cog = null;
+    var About_Text_Photo : Cog = null;
     
     function Initialize(init : CogInitializer)
     {
@@ -41,6 +46,10 @@ class M_Button_Controller : ZilchComponent
         this.NewGameCancleButtonPhoto = this.Space.FindObjectByName("cancle_new_game_button_photo");
         this.MusicOpenButtonPhoto = this.Space.FindObjectByName("open_music_button_photo");
         this.MusicCloseButtonPhoto = this.Space.FindObjectByName("close_music_button_photo");
+        this.AboutButton = this.Space.FindObjectByName("about");
+        this.AboutBackButton = this.Space.FindObjectByName("main_about_back_button");
+        this.About_Text = this.Space.FindObjectByName("about_text");
+        this.About_Text_Photo = this.Space.FindObjectByName("about_text_photo");
     }
     
     function OffAllActive()
@@ -48,7 +57,8 @@ class M_Button_Controller : ZilchComponent
         if (this.NewGameButton == null || this.ContinueButton == null ||
         this.SettingButton == null || this.MusicCloseButton == null ||
         this.MusicOpenButton == null || this.NewGameCancleButton == null ||
-        this.NewGameYesButton == null)
+        this.NewGameYesButton == null || this.AboutButton == null ||
+        this.AboutBackButton == null)
         {
             this.InitCog();
         }
@@ -60,6 +70,8 @@ class M_Button_Controller : ZilchComponent
         this.MusicCloseButton.M_ChangeMusic_CLOSE_ClickEvent.Active = false;
         this.NewGameYesButton.M_NewGame_YES_ClickEvent.Active = false;
         this.NewGameCancleButton.M_NewGame_CANCLE_ClickEvent.Active = false;
+        this.AboutButton.M_ShowAbout_ClickEvent.Active = false;
+        this.AboutBackButton.M_About_Back_ClickEvent.Active = false;
     }
     
     //on 2 music button
@@ -84,6 +96,15 @@ class M_Button_Controller : ZilchComponent
         this.NewGameCancleButton.M_NewGame_CANCLE_ClickEvent.Active = true;
     }
     
+    function OnAboutBackButton()
+    {
+        if (this.AboutBackButton == null)
+        {
+            this.InitCog();
+        }
+        this.AboutBackButton.M_About_Back_ClickEvent.Active = true;
+    }
+    
     //on 3 main page button
     function OnMainPageTreeButton()
     {
@@ -94,6 +115,7 @@ class M_Button_Controller : ZilchComponent
         this.NewGameButton.M_NewGame_ClickEvent.Active = true;
         this.ContinueButton.M_ContinueGame_ClickEvent.Active = true;
         this.SettingButton.M_ChangeMusic_ClickEvent.Active = true;
+        this.AboutButton.M_ShowAbout_ClickEvent.Active = true;
     }
     
     //animation to show music switch button
@@ -198,6 +220,39 @@ class M_Button_Controller : ZilchComponent
         this.OffAnimation(this.NewGameCancleButton);
         this.OffAnimation(this.NewGameYesButton);
         this.OffAnimation(this.Waring_TextBackground);
+    }
+    
+    
+    function ShowAbout()
+    {
+        Console.WriteLine("ShowAbout");
+        if (this.AboutBackButton == null ||
+        this.About_Text == null ||
+        this.About_Text_Photo == null)
+        {
+            this.InitCog();
+        }
+        
+        this.About_Text.Sprite.SpriteLayer = SpriteLayer.Top_9;
+        this.About_Text_Photo.Sprite.SpriteLayer = SpriteLayer.Top_8;
+        
+        this.ActiveAnimation(this.About_Text);
+        
+    }
+    
+    function DisappearAbout()
+    {
+         if (this.AboutBackButton == null ||
+        this.About_Text == null ||
+        this.About_Text_Photo == null)
+        {
+            this.InitCog();
+        }
+        
+        this.About_Text.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
+        this.About_Text_Photo.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
+        
+        this.OffAnimation(this.About_Text);
     }
     
     function ActiveAnimation(cog : Cog)

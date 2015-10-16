@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "loading_ani",
+		uint64 ResourceId = 5647c42eec2b4f53,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 241,
+		uint FrameSizeY = 220,
+		uint FrameCount = 6,
+		float FrameDelay = 0.0833333358,
+		float OriginX = 120,
+		float OriginY = 110,
+		float PixelsPerUnit = 64,
+		bool Smoothing = false,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+		SpriteFill Fill = Stretch,
+	},
+},

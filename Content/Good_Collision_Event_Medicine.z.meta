@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Good_Collision_Event_Medicine",
+		uint64 ResourceId = 567161fb011f46fe,
+	},
+},

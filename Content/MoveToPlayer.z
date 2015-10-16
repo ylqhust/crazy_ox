@@ -10,6 +10,16 @@ class MoveToPlayer : ZilchComponent
     
     var PlayerObj : Cog = null;
     
+    [Property]
+    var Left_Ani : SpriteSource = SpriteSource.Bird_left_ani;
+    [Property]
+    var Right_Ani : SpriteSource = SpriteSource.Bird_right_ani;
+    [Property]
+    var Down_Ani : SpriteSource = SpriteSource.Bird_front_ani;
+    [Property]
+    var Up_Ani : SpriteSource = SpriteSource.Bird_back_ani;
+    
+    
     
     function Initialize(init : CogInitializer)
     {
@@ -65,10 +75,10 @@ class MoveToPlayer : ZilchComponent
         {
             if (-deltY > -deltX )
             {
-                this.Owner.Sprite.SpriteSource = SpriteSource.Bird_front_ani;
+                this.Owner.Sprite.SpriteSource = this.Down_Ani;
                 return;
             }
-            this.Owner.Sprite.SpriteSource = SpriteSource.Bird_left_ani;
+            this.Owner.Sprite.SpriteSource = this.Left_Ani;
             return;
         }
         
@@ -76,10 +86,10 @@ class MoveToPlayer : ZilchComponent
         {
             if (deltY > deltX)
             {
-                this.Owner.Sprite.SpriteSource = SpriteSource.Bird_back_ani;
+                this.Owner.Sprite.SpriteSource = this.Up_Ani;
                 return;
             }
-            this.Owner.Sprite.SpriteSource = SpriteSource.Bird_right_ani;
+            this.Owner.Sprite.SpriteSource = this.Right_Ani;
             return;
         }
         
@@ -87,10 +97,10 @@ class MoveToPlayer : ZilchComponent
         {
             if (-deltY > deltX)
             {
-                this.Owner.Sprite.SpriteSource = SpriteSource.Bird_front_ani;
+                this.Owner.Sprite.SpriteSource = this.Down_Ani;
                 return;
             }
-            this.Owner.Sprite.SpriteSource = SpriteSource.Bird_right_ani;
+            this.Owner.Sprite.SpriteSource = this.Right_Ani;
             return;
         }
         
@@ -98,10 +108,10 @@ class MoveToPlayer : ZilchComponent
         {
             if (deltY > -deltX)
             {
-                this.Owner.Sprite.SpriteSource = SpriteSource.Bird_back_ani;
+                this.Owner.Sprite.SpriteSource = this.Up_Ani;
                 return;
             }
-            this.Owner.Sprite.SpriteSource = SpriteSource.Bird_left_ani;
+            this.Owner.Sprite.SpriteSource = this.Left_Ani;
             return;
         }
     }

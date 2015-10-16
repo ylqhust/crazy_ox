@@ -12,6 +12,8 @@ class Guai_Collision_Event : ZilchComponent
     var Money : Integer = 100;
     [Property]
     var PlayerName : String = "Player";
+    [Property]
+    var LostGoodName : String = "Medicine";
     
     var CONTINUE : Integer = 1;
     var PLAYER_DEAD : Integer = 2;
@@ -120,6 +122,7 @@ class Guai_Collision_Event : ZilchComponent
     
     function AwardPlayer()
     {
+        this.LostGood();
         var player_exp = this.Space.SPA_Controller.GetCurrentExperience();
         var player_money = this.Space.SPA_Controller.GetMoney();
         this.Space.SPA_Controller.ChangeMoney(player_money+this.Money);
@@ -134,5 +137,12 @@ class Guai_Collision_Event : ZilchComponent
     function CloseAnimation()
     {
        this.Battle_Animation.Sprite.SpriteLayer = SpriteLayer.DefaultSpriteLayer;
+    }
+    
+    
+    //when player win ,monster will lost something
+    function LostGood()
+    {
+        new GoodBuilder().SetGoodType(this.LostGoodName).SetContext(this.Owner).SetAppearPosition(this.Owner.Transform.Translation).Build();
     }
 }

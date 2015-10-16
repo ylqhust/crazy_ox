@@ -3,7 +3,7 @@ DataContent =
 	DataBuilder = 
 	{
 		string Name = "WorldMapLevel003",
-		uint64 ResourceId = 56439e265d8f594d,
+		uint64 ResourceId = 56717c10445c6eaa,
 		string LoaderType = "Level",
 		uint Version = 0,
 		bool ShowInEditor = true,

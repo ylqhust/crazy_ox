@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "WORLD_Map002_ClickEvent",
+		uint64 ResourceId = 5671594e49a47174,
+	},
+},

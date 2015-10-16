@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "M_About_Back_ClickEvent",
+		uint64 ResourceId = 567153a9cb34d2b0,
+	},
+},

@@ -10,6 +10,13 @@ class Show_Result : ZilchComponent
     [Property]
     var Animation_Time : Real = 3;
     var Passed_Time : Real = 0;
+    
+    [Property]
+    var This_Number : Integer = 1;
+    [Property]
+    var Battle_Win : SpriteSource = SpriteSource.Battle_win;
+    [Property]
+    var Battle_Lose : SpriteSource = SpriteSource.Battle_lose;
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -70,7 +77,7 @@ class Show_Result : ZilchComponent
     function ShowWin()
     {
         this.Begin_Count_Time = true;
-        this.Battle_Result.Sprite.SpriteSource = SpriteSource.Battle_win;
+        this.Battle_Result.Sprite.SpriteSource = this.Battle_Win;
         this.Battle_Result.Sprite.SpriteLayer = SpriteLayer.Mid_6;
         this.Battle_Result_Container.DynamicSpread.Active = true;
     }
@@ -78,7 +85,7 @@ class Show_Result : ZilchComponent
     function ShowLose()
     {
         this.Begin_Count_Time = true;
-        this.Battle_Result.Sprite.SpriteSource = SpriteSource.Battle_lose;
+        this.Battle_Result.Sprite.SpriteSource = this.Battle_Lose;
         this.Battle_Result.Sprite.SpriteLayer = SpriteLayer.Mid_6;
         this.Battle_Result_Container.DynamicSpread.Active = true;
         this.Battle_Result_Container.DynamicReduce.Active = false;
@@ -91,7 +98,32 @@ class Show_Result : ZilchComponent
         this.Battle_Result_Container.DynamicSpread.Active = false;
         if (this.WinORLose == false)
         {
-            this.Space.Level_Controller.Map001Level();
+           if (this.This_Number == 1)
+           {
+               this.Space.Level_Controller.Map001Level();
+               return;
+           }
+           if (this.This_Number == 2)
+           {
+               this.Space.Level_Controller.Map002Level();
+               return;
+           }
+           if (this.This_Number == 3)
+           {
+               this.Space.Level_Controller.Map003Level();
+               return;
+           }
+           if (this.This_Number == 4)
+           {
+               this.Space.Level_Controller.Map004Level();
+               return;
+           }
+           if (this.This_Number == 5)
+           {
+               this.Space.Level_Controller.Map005Level();
+               return;
+           }
         }
     }
+    
 }

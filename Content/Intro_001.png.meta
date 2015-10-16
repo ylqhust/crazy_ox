@@ -3,14 +3,14 @@ ImageContent =
 	SpriteSourceBuilder = 
 	{
 		string Name = "Intro_001",
-		uint64 ResourceId = 564316661547ff24,
+		uint64 ResourceId = 5647c6d242fb4c50,
 		uint64 AtlasId = 5274cf95e4a661fd,
 		uint FrameSizeX = 0,
 		uint FrameSizeY = 0,
 		uint FrameCount = 1,
 		float FrameDelay = 0.0833333358,
-		float OriginX = 512,
-		float OriginY = 318,
+		float OriginX = 390,
+		float OriginY = 275,
 		float PixelsPerUnit = 64,
 		bool Smoothing = true,
 		bool Looping = true,

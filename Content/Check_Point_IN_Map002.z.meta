@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Check_Point_IN_Map002",
+		uint64 ResourceId = 567173819324eff9,
+	},
+},

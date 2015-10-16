@@ -1,0 +1,35 @@
+class GoodBuilder : ZilchComponent
+{
+    var ArcheTypeName : String = null;
+    var Position : Real3 = Real3(0,0,0);
+    var Context : Cog = null;
+    function SetGoodType(archetype : String) : GoodBuilder
+    {
+        this.ArcheTypeName = archetype;
+        return this;
+    }
+    
+    function SetContext(context : Cog) : GoodBuilder
+    {
+        this.Context = context;
+        return this;
+    }
+    
+    
+    function SetAppearPosition(position : Real3) : GoodBuilder
+    {
+        this.Position = position;
+        return this;
+    }
+    
+    function Build()
+    {
+        if (this.ArcheTypeName == null)
+        {
+            Console.WriteLine("ArcheTypeName is null");
+            return;
+        }
+        var archetype = Archetype.Find(this.ArcheTypeName);
+        this.Context.Space.CreateAtPosition(archetype,this.Position);
+    }
+}

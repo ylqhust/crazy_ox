@@ -115,7 +115,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 20.1896992,
+			float Size = 24.3650169,
 		},
 		EditorCameraController = 
 		{
@@ -195,7 +195,7 @@ Level =
 			Vec4 Color = [1, 1, 1, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "565acfef42a79a0a:Bottom_9",
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 			string SpriteSource = "564272be9d96856d:main_page_background",
 			bool RenderMask = false,
 			bool FlipX = true,
@@ -218,7 +218,7 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [9.84014606, -0.142643452, 0],
-			Vec3 Scale = [0.585228443, 1.42906308, 1],
+			Vec3 Scale = [0.585228443, 1.79999995, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
@@ -1026,6 +1026,208 @@ Level =
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 24,
+		},
+		Named = 
+		{
+			string Name = "about",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [10, -5, 0],
+			Vec3 Scale = [4.5999999, 1.58000004, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "565acfc1456e5544:Bottom_7",
+			string SpriteSource = "5275aa4d802dd6dc:Square",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		M_ShowAbout_ClickEvent = 
+		{
+			bool Active = true,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 25,
+		},
+		Named = 
+		{
+			string Name = "about_button_background",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [10.0855331, -5, 0],
+			Vec3 Scale = [1.28559375, 1.60076153, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "565acfdc3a19e35c:Bottom_6",
+			string SpriteSource = "5670afc2b8b63a29:main_productor_info",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 26,
+		},
+		Named = 
+		{
+			string Name = "about_text",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.0349969864, 1.66236591, 0],
+			Vec3 Scale = [0.800000012, 1.20000005, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5275aa4d802dd6dc:Square",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		DynamicSpread = 
+		{
+			float FinalX = 8,
+			float FinalY = 12,
+			int SpreadSpeedX = 8,
+			int SpreadSpeedY = 12,
+			bool Active = false,
+		},
+		DynamicReduce = 
+		{
+			float FinalX = 0.800000012,
+			float FinalY = 1.20000005,
+			int ReduceSpeedX = 8,
+			int ReduceSpeedY = 12,
+			bool Active = false,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 27,
+				},
+				Named = 
+				{
+					string Name = "about_text_photo",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.00147360587, 0.0029874444, 0],
+					Vec3 Scale = [0.0961568281, 0.115386821, 0.99999994],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "5671527dd40e25b2:main_about",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 28,
+		},
+		Named = 
+		{
+			string Name = "main_about_back_button",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-0.0105020367, -2.75737047, 0],
+			Vec3 Scale = [2.43469787, 1.9798193, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5275aa4d802dd6dc:Square",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		M_About_Back_ClickEvent = 
+		{
+			bool Active = false,
 		},
 	},
 },

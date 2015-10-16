@@ -88,14 +88,24 @@ class INTRO_Pre_Controller : ZilchComponent
     
     function Set_Current_View()
     {
-        if (this.Current_View == SpriteSource.Intro_003)
+        if (this.Current_View == SpriteSource.Intro_006)
         {
-            this.Intro_Background.Sprite.SpriteSource =  SpriteSource.Intro_002;
+            this.Intro_Background.Sprite.SpriteSource = SpriteSource.Intro_005;
+            return;
+        }
+        if (this.Current_View == SpriteSource.Intro_005)
+        {
+            this.Intro_Background.Sprite.SpriteSource =  SpriteSource.Intro_004;
             return;
         }
         if (this.Current_View == SpriteSource.Intro_004)
         {
             this.Intro_Background.Sprite.SpriteSource = SpriteSource.Intro_003;
+            return;
+        }
+        if (this.Current_View == SpriteSource.Intro_003)
+        {
+            this.Intro_Background.Sprite.SpriteSource =  SpriteSource.Intro_002;
             return;
         }
         if (this.Current_View == SpriteSource.Intro_002)

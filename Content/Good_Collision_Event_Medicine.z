@@ -1,0 +1,25 @@
+class Good_Collision_Event_Medicine : ZilchComponent
+{
+    [Property]
+    var PlayerName : String = "Player";
+    [Property]
+    var AwardHP : Integer = 100;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.Drink);
+    }
+
+    function Drink(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if (this.PlayerName == otherObject.Name)
+        {
+            var preHP = this.Space.SPA_Controller.GetLife();
+            this.Space.SPA_Controller.ChangeLife(preHP+this.AwardHP);
+            otherObject.SPA_Show_To_Text.UpdataText();
+            this.Owner.Destroy();
+        }
+        return;
+    }
+}
